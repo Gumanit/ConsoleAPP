@@ -1,0 +1,20 @@
+@host = https://jsonplaceholder.typicode.com
+@contentType = application/json
+
+### Получить список задач (внешний API)
+GET {{host}}/todos
+Accept: {{contentType}}
+
+### Получить одну задачу по идентификатору
+GET {{host}}/todos/1
+Accept: {{contentType}}
+
+### Создать задачу (пример POST)
+POST {{host}}/todos
+Content-Type: {{contentType}}
+
+{
+  "userId": 1,
+  "title": "Новая задача из OpenIDE",
+  "completed": false
+}

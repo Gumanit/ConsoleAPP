@@ -1,0 +1,138 @@
+# EditorConfig: https://editorconfig.org
+# Правила стиля и форматирования, которые OpenIDE применяет к коду решения.
+
+# Корневой конфиг: не искать настройки в родительских папках.
+root = true
+
+# Секция для всех файлов.
+[*]
+# Кодировка UTF-8.
+charset = utf-8
+# Перевод строки LF, как в Linux/macOS.
+end_of_line = lf
+# Добавлять пустую строку в конце файла.
+insert_final_newline = true
+# Удалять пробелы и табы в конце строк.
+trim_trailing_whitespace = true
+# Отступы пробелами.
+indent_style = space
+# Размер отступа — 4 пробела.
+indent_size = 4
+# Рекомендуемая максимальная длина строки — 120 символов.
+max_line_length = 120
+
+# Для C# и C# script-файлов.
+[*.{cs,csx}]
+# Отступ 4 пробела.
+indent_size = 4
+
+# Для JSON, YAML, MSBuild-проектов, solution и конфигов.
+[*.{json,yml,yaml,props,targets,csproj,sln,editorconfig,globalconfig}]
+# Отступ 2 пробела.
+indent_size = 2
+
+# Для Markdown.
+[*.md]
+# Не удалять пробелы в конце строк: два пробела могут означать перенос строки.
+trim_trailing_whitespace = false
+
+# Автосгенерированный код EF Core не подчиняется правилам стиля проекта.
+[**/Migrations/*.cs]
+# Пометить файлы как сгенерированные: IDE и анализаторы будут их игнорировать.
+generated_code = true
+# Отключить диагностику IDE0161 (обычно — «использовать file-scoped namespace»).
+dotnet_diagnostic.IDE0161.severity = none
+# Не требовать явные модификаторы доступа; silent — не показывать в IDE.
+dotnet_style_require_accessibility_modifiers = never:silent
+# Отключить все диагностики анализаторов для этой секции.
+dotnet_analyzer_diagnostic.severity = none
+
+# Секция для всех C#-файлов.
+[*.cs]
+# ===== Организация using =====
+# using System.* должны идти первыми при сортировке.
+dotnet_sort_system_directives_first = true
+# Не разделять группы using пустыми строками.
+dotnet_separate_import_directive_groups = false
+
+# ===== Правила именования =====
+# Уровень warning для правила именования интерфейсов.
+dotnet_naming_rule.interfaces_start_with_i.severity = warning
+# Правило применяется к группе символов «interfaces».
+dotnet_naming_rule.interfaces_start_with_i.symbols = interfaces
+# Использовать стиль i_prefixed.
+dotnet_naming_rule.interfaces_start_with_i.style = i_prefixed
+# Группа символов «interfaces» описывает интерфейсы.
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+# Имя интерфейса обязано начинаться с I.
+dotnet_naming_style.i_prefixed.required_prefix = I
+# Остальная часть имени — PascalCase.
+dotnet_naming_style.i_prefixed.capitalization = pascal_case
+
+# ===== Форматирование отступов и переносов =====
+# Открывающая { переносится на новую строку для всех конструкций.
+csharp_new_line_before_open_brace = all
+# else — с новой строки.
+csharp_new_line_before_else = true
+# catch — с новой строки.
+csharp_new_line_before_catch = true
+# finally — с новой строки.
+csharp_new_line_before_finally = true
+# Содержимое case внутри switch получает отступ.
+csharp_indent_case_contents = true
+# Метки case/default внутри switch получают отступ.
+csharp_indent_switch_labels = true
+# Не сохранять несколько операторов/объявлений в одной строке.
+csharp_preserve_single_line_statements = false
+# Однострочные блоки { ... } можно оставлять в одну строку.
+csharp_preserve_single_line_blocks = false
+
+# ===== Пробелы =====
+# Без пробела после приведения типа: (int)x, а не (int) x.
+csharp_space_after_cast = false
+# После if, for, while и т.п. нужен пробел: if (x).
+csharp_space_after_keywords_in_control_flow_statements = true
+# Пробел перед : в наследовании: class A : B.
+csharp_space_before_colon_in_inheritance_clause = true
+
+# ===== Предпочтения модификаторов =====
+# Требовать явные модификаторы доступа для не-интерфейсных членов; уровень warning.
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
+# Предпочитать фигурные скобки даже для однострочных блоков; suggestion.
+csharp_prefer_braces = true:suggestion
+# Для локальных переменных, параметров и членов использовать встроенные типы (int, string); suggestion.
+dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
+# Для доступа к членам использовать встроенные типы, например int.MaxValue; suggestion.
+dotnet_style_predefined_type_for_member_access = true:suggestion
+
+# ===== Предпочтения выражений =====
+# Не использовать var для встроенных типов; suggestion.
+csharp_style_var_for_built_in_types = false:suggestion
+# Использовать var, когда тип очевиден из правой части; suggestion.
+csharp_style_var_when_type_is_apparent = true:suggestion
+# Expression-bodied методы (=>) только если тело помещается в одну строку; suggestion.
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+# Предпочитать expression-bodied свойства; suggestion.
+csharp_style_expression_bodied_properties = true:suggestion
+# Использовать file-scoped namespace (namespace Foo;); warning.
+csharp_style_namespace_declarations = file_scoped:warning
+# Использовать инициализаторы объектов; suggestion.
+dotnet_style_object_initializer = true:suggestion
+# Использовать инициализаторы коллекций; suggestion.
+dotnet_style_collection_initializer = true:suggestion
+
+# ===== Диагностика: убираем шум =====
+# Отключить CS1591: отсутствует XML-комментарий для публичного типа/члена.
+dotnet_diagnostic.CS1591.severity = none
+# Отключить SA1633: файл должен иметь заголовок.
+dotnet_diagnostic.SA1633.severity = none
+# Отключить SA1600: элементы должны быть документированы.
+dotnet_diagnostic.SA1600.severity = none
+# Отключить SA1101: требование обращаться к членам через this.
+dotnet_diagnostic.SA1101.severity = none
+# Отключить SA1309: имена полей не должны начинаться с _.
+dotnet_diagnostic.SA1309.severity = none
+# Отключить SA1200: правила размещения using относительно namespace.
+dotnet_diagnostic.SA1200.severity = none
+# Отключить SA1413: требование завершающей запятой в многострочных инициализаторах.
+dotnet_diagnostic.SA1413.severity = none

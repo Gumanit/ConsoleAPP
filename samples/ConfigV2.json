@@ -1,0 +1,19 @@
+{
+  "application": {
+    "name": "todo-manager",
+    "version": "1.1.0",
+    "environment": "production"
+  },
+  "database": {
+    "host": "db.internal",
+    "port": 5432,
+    "name": "todo_prod",
+    "poolSize": 50,
+    "ssl": true
+  },
+  "features": {
+    "importFromApi": true,
+    "notifications": true,
+    "auditLog": true
+  }
+}

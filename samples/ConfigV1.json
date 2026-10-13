@@ -1,0 +1,17 @@
+{
+  "application": {
+    "name": "todo-manager",
+    "version": "1.0.0",
+    "environment": "development"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5433,
+    "name": "todo_db",
+    "poolSize": 10
+  },
+  "features": {
+    "importFromApi": true,
+    "notifications": false
+  }
+}

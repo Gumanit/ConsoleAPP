@@ -1,0 +1,17 @@
+## .NET
+bin/
+obj/
+*.user
+
+## Rider / IntelliJ
+.idea/
+*.sln.iml
+
+## OpenIDE
+.aiforopenide/
+
+## Rider / VS
+.vs/
+
+## Прочее
+*.suo

@@ -29,6 +29,48 @@ dotnet test
 Строка подключения задаётся в `ConsoleApp/appsettings.json` и переопределяется переменной
 окружения `TODO_ConnectionStrings__TodoDb`.
 
+## Запуск и тесты из IDE (OpenIDE Pro / Rider)
+
+В репозитории лежат общие конфигурации запуска — `.idea/runConfigurations/*.xml`.
+Они попадают в git (в `.gitignore` для этого сделано исключение) и появляются у всех,
+кто склонировал проект:
+
+| Конфигурация | Что запускает |
+| --- | --- |
+| `ConsoleApp (dotnet run)` | консольное приложение (`dotnet run`) |
+| `Tests (ConsoleApp.Tests)` | все тесты проекта |
+| `Tests: <Класс>` | все тесты класса |
+| `Tests: <Класс>.<Метод>` | один конкретный тест |
+
+### Подготовка окружения
+
+1. **Docker** — интеграционные тесты `EfTaskRepositoryTests` поднимают PostgreSQL через
+   Testcontainers:
+   ```powershell
+   docker compose up -d
+   ```
+
+2. **TeamCity test-logger** — плагин C# читает им результаты тестов и берёт его из
+   `%USERPROFILE%\.openide-dotnet-tools\teamcity-logger` (Linux/macOS: `~/.openide-dotnet-tools/teamcity-logger`).
+   Если IDE не смогла скачать его сама (сообщение `Failed to install test logger` и тесты не
+   стартуют), установите вручную:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File tools\install-test-logger.ps1
+   ```
+   Если у машины нет доступа к nuget.org — просто скопируйте каталог `teamcity-logger`
+   (целиком) с машины, где тесты в IDE работают, в такой же путь.
+
+### Известные ограничения плагина C# 0.0.19
+
+- Запуск теста/класса **зелёной стрелкой в редакторе (гуттере)** создаёт конфигурацию с фильтром
+  без пространства имён (`FullyQualifiedName=<Class>` вместо `<Namespace>.<Class>`) и завершается
+  `No test matches the given testcase filter`. Используйте конфигурации `Tests: …` из списка
+  или `dotnet test --filter` в терминале.
+- **Debug** приложения и тестов падает (`dncdbg`, код `0xC0000409`, модуль `ucrtbase.dll`).
+  Запускайте кнопкой **Run**.
+- Формат фильтра в конфигурациях: `FullyQualifiedName~<Namespace>.<Class>[.<Method>]`
+  (знак `~` — «содержит»); для `[Theory]` так запускаются все его `InlineData`-случаи.
+
 ## Чем можно проверить критерии чек-листа
 
 | # | Критерий | Где смотреть / что делать |
@@ -79,6 +121,9 @@ dotnet test
 ## Полезные команды
 
 ```powershell
+# TeamCity test-logger для запуска тестов из IDE (плагин C# качает его сам не всегда)
+powershell -ExecutionPolicy Bypass -File tools\install-test-logger.ps1
+
 # Миграции EF Core
 dotnet ef migrations add <Имя> --project ConsoleApp.Core --startup-project ConsoleApp.Core
 dotnet ef database update --project ConsoleApp.Core --startup-project ConsoleApp.Core

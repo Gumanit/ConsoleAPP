@@ -118,6 +118,30 @@ dotnet test
 При первом запуске примените миграции (`dotnet ef database update`) или просто запустите
 приложение — оно само выполнит `Database.Migrate()` и создаст схему.
 
+## Генерация тестовых данных
+
+В папке `scripts/`:
+
+- `scripts/seed-test-data.sql` — SQL-генератор задач, категорий и тегов;
+- `scripts/seed-test-data.ps1` — обёртка: поднимает контейнер и выполняет SQL.
+
+```powershell
+# 50 задач по умолчанию
+powershell -File scripts/seed-test-data.ps1
+
+# своё количество
+powershell -File scripts/seed-test-data.ps1 -Count 200
+
+# с предварительной очисткой таблиц задач
+powershell -File scripts/seed-test-data.ps1 -Count 200 -Reset
+```
+
+Напрямую через psql (если контейнер уже запущен):
+
+```powershell
+docker exec -i todo-postgres psql -U todo -d todo_db -f - < scripts/seed-test-data.sql
+```
+
 ## Полезные команды
 
 ```powershell

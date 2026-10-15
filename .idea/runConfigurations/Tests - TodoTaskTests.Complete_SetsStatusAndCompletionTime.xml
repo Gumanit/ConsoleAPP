@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: TodoTaskTests.Complete_SetsStatusAndCompletionTime" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Domain.TodoTaskTests.Complete_SetsStatusAndCompletionTime" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

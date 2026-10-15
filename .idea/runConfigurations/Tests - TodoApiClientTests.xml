@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: TodoApiClientTests" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Api.TodoApiClientTests" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

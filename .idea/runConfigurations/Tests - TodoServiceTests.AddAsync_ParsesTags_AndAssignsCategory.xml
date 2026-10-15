@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: TodoServiceTests.AddAsync_ParsesTags_AndAssignsCategory" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Services.TodoServiceTests.AddAsync_ParsesTags_AndAssignsCategory" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

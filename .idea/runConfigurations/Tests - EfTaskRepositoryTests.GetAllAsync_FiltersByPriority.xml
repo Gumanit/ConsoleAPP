@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: EfTaskRepositoryTests.GetAllAsync_FiltersByPriority" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Repositories.EfTaskRepositoryTests.GetAllAsync_FiltersByPriority" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

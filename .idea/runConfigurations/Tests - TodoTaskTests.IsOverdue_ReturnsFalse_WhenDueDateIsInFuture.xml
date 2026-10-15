@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: TodoTaskTests.IsOverdue_ReturnsFalse_WhenDueDateIsInFuture" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Domain.TodoTaskTests.IsOverdue_ReturnsFalse_WhenDueDateIsInFuture" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

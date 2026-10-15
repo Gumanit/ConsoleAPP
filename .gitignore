@@ -4,7 +4,9 @@ obj/
 *.user
 
 ## Rider / IntelliJ
-.idea/
+# Игнорируем локальные настройки IDE, но шарим общие конфигурации запуска
+.idea/*
+!.idea/runConfigurations/
 *.sln.iml
 
 ## OpenIDE

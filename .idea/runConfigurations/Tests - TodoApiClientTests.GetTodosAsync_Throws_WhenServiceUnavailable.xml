@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: TodoApiClientTests.GetTodosAsync_Throws_WhenServiceUnavailable" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Api.TodoApiClientTests.GetTodosAsync_Throws_WhenServiceUnavailable" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

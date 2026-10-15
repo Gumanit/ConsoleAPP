@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: EfTaskRepositoryTests.AddAsync_PersistsTask_WithCategoryAndTags" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Repositories.EfTaskRepositoryTests.AddAsync_PersistsTask_WithCategoryAndTags" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

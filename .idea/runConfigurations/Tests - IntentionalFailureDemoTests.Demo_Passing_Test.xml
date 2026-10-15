@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: IntentionalFailureDemoTests.Demo_Passing_Test" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Demo.IntentionalFailureDemoTests.Demo_Passing_Test" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

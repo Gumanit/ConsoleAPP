@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: IntentionalFailureDemoTests.Demo_Failing_Test_Finds_Too_Much" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Demo.IntentionalFailureDemoTests.Demo_Failing_Test_Finds_Too_Much" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests: LanguageFeaturesTests.DescribePriority_Throws_OnUnknownValue" type="DotnetTestConfiguration" factoryName=".NET Tests">
+    <option name="file" value="$PROJECT_DIR$/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <option name="testFilter" value="FullyQualifiedName~ConsoleApp.Tests.Services.LanguageFeaturesTests.DescribePriority_Throws_OnUnknownValue" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>
